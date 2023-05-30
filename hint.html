@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let input = prompt('suuji');
+    let result = "";
+    function main(input) {
+      if (input <= 0) {
+        return result
+      }
+      result = input % 2 + result;
+      input = ~~(input / 2);
+      console.log(input);
+      return main(input);
+    }
+    n = main(input);
+    alert(n);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
