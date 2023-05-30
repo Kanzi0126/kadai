@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>タイトル</title>
+  <script>
+    let input = prompt("数字を入力してください");
+    let i = "";
+    try {                                             //例外処理が起きる場所に設置
+      if (isNaN(input)) {                           //入力された値が数値かどうか判定
+        throw new Error("数字を入力してください");    //例外処理を作成
+      }
+     i = dec2bin(input, i);
+      alert("2進数：" + i + "\n16進数：");
+    } catch (error) {
+      alert(error.message);                            //エラーメッセージを表示
+    }
+
+    //これが再起呼び出し
+    function dec2bin(input, i) {
+      if (input <= 0) {
+        return i;
+      }
+      i = input % 2 + i;
+      input = ~~(input / 2);
+      return dec2bin(input, i);       //こういう風に、自分自身を呼び出すことを再起呼び出しという
+    }
+  </script>
+</head>
+
+<body>
+  <h1>done</h1>
+</body>
+
+</html>

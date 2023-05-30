@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>素因数分解</title>
+
+<body>
+  <script>
+    let input = prompt("数字を入力してください");
+let n = Number(input);
+
+try {
+  if (isNaN(n)) {
+    throw new Error("数字を入力してください");
+  }
+
+  const primeFactors = (num) => {
+    const factors = [];
+    let divisor = 2;
+
+    while (num >= 2) {
+      if (num % divisor === 0) {
+        factors.push(divisor);
+        num = num / divisor;
+      } else {
+        divisor++;
+      }
+    }
+
+    return factors;
+  };
+
+  const result = primeFactors(n);
+  alert(`Prime factors of ${n}: ${result}`);
+} catch (error) {
+  alert(error.message);
+}
+
+
+  </script>
+
+</body>
+</head>
+
+</html>

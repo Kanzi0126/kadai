@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>タイトル</title>
+<script>
+  let input = prompt("数字を入力してください");
+  try {                                             //例外処理が起きる場所に設置
+      if (isNaN(input)) {                           //入力された値が数値かどうか判定
+      throw new Error("数字を入力してください");    //例外処理を作成
+    }
+    let i = "";
+    while (true) {                                  //無限ループ
+      if (input <= 0) {                             //入力された値が0以下の場合ループを抜ける
+        break;
+      }
+      i = input % 2 + i;                            //2で割った余りを文字列に追加
+      input = ~~(input / 2);                        //~~で小数点以下を切り捨てる
+    }
+    alert("2進数：" + i + "\n16進数：");
+  } catch (error) {
+    alert(error.message);                            //エラーメッセージを表示
+  }
+
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>2進数・16進数変換ツール</title>
+  <script>
+    let input = prompt("数字を入力してください");
+    let k = input;
+    try {                                        //例外処理が起きる場所に設置
+      if (isNaN(input)) {                          //入力された値が数値かどうか判定
+        throw new Error("数字を入力してください");      //例外処理を作成 
+      }
+      let i = "";
+      while (true) {                                  //無限ループ
+        if (input <= 0) {                             //入力された値が0以下の場合ループを抜ける
+          break;
+        }
+        i = input % 2 + i;                            //2で割った余りを文字列に追加
+        input = ~~(input / 2);                        //~~で小数点以下を切り捨てる
+      }
+
+      let g = "";                                   //16進数
+      while (true) {
+        if (k <= 0) {
+          break;
+        }
+        let h = k % 16;
+        const mapping = {
+  15: "F",
+  14: "E",
+  13: "D",
+  12: "C",
+  11: "B",
+  10: "A"
+};
+
+h = mapping[h] || h;
+
+        //g = k % 16 + g;
+        g = h + g;
+        k = ~~(k / 16);
+      }
+      alert("2進数：" + i + "\n16進数：" + g);
+    } catch (error) {
+      alert(error.message);                            //エラーメッセージを表示
+    }
+
+
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>
